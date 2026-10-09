@@ -80,6 +80,7 @@ enum SubtitleStore {
      }
      guard Set(sources.map(\.lastPathComponent)).count==sources.count else{throw CocoaError(.fileReadCorruptFile)}
      for source in sources{try fm.copyItem(at:source,to:stage.appendingPathComponent(source.lastPathComponent))}
+     if sources.isEmpty{_ = try stageInitialPack(from:source,in:stage)}
      }
     }catch{copyError=error}
    }
@@ -89,6 +90,9 @@ enum SubtitleStore {
    guard MFExtractArchive(url.path,stage.path,&nativeError) else{throw nativeError ?? CocoaError(.fileReadCorruptFile) as NSError}
   }
   if let manifest=try customManifest(in:stage){operation="Install custom chart";try await installCustom(manifest,report:report);return}
+  // Initial songs live flat inside the original App, unlike downloadable Mov_* packs.
+  // Normalize only the known initial songs and their artwork; never copy or execute an App binary.
+  _ = try stageInitialPack(from:stage,in:stage)
   guard let walk=fm.enumerator(at:stage,includingPropertiesForKeys:[.isDirectoryKey]) else{throw CocoaError(.fileReadCorruptFile)}
   var folders:[URL]=[]
   for case let path as URL in walk {
@@ -96,7 +100,7 @@ enum SubtitleStore {
    if n.range(of:"^(Mov|Thum)_[0-9]+$",options:.regularExpression) != nil,(try? path.resourceValues(forKeys:[.isDirectoryKey]).isDirectory)==true {folders.append(path);walk.skipDescendants()}
   }
   guard Set(folders.map{$0.lastPathComponent}).count==folders.count else{throw CocoaError(.fileReadCorruptFile)}
-  guard !folders.isEmpty else{throw NSError(domain:"MikuPack",code:1,userInfo:[NSLocalizedDescriptionKey:"No Mov_* or Thum_* folders found."])}
+  guard !folders.isEmpty else{throw NSError(domain:"MikuPack",code:1,userInfo:[NSLocalizedDescriptionKey:"No Mov_* folders or original initial-song USM files found."])}
   guard folders.contains(where:{$0.lastPathComponent.hasPrefix("Mov_")}) else{throw NSError(domain:"MikuPack",code:2,userInfo:[NSLocalizedDescriptionKey:"This pack contains no playable USM files."])}
   let catalog:[CatalogEntry]=try resource("dlc-catalog","json").map {try JSONDecoder().decode([CatalogEntry].self,from:Data(contentsOf:$0))} ?? []
   try fm.createDirectory(at:root,withIntermediateDirectories:true)
@@ -108,7 +112,7 @@ enum SubtitleStore {
    for (index,movie) in movies.enumerated() {
     report("convertingSong",index+1,movies.count)
     operation="Read chart";filename=movie.lastPathComponent
-    let name=movie.deletingPathExtension().lastPathComponent;let chart=try UTFTable.chart(movie);let playback=folder.appendingPathComponent("Playback",isDirectory:true);try fm.createDirectory(at:playback,withIntermediateDirectories:true)
+    let name=movie.deletingPathExtension().lastPathComponent;var chart=try UTFTable.chart(movie);chart.inputLanguage = .japanese;let playback=folder.appendingPathComponent("Playback",isDirectory:true);try fm.createDirectory(at:playback,withIntermediateDirectories:true)
     let dest=playback.appendingPathComponent(name+".mp4");nativeError=nil;operation="Convert media";guard MFConvertUSM(movie.path,dest.path,&nativeError) else{throw nativeError ?? CocoaError(.fileReadCorruptFile) as NSError}
     operation="Write song"
     let json=playback.appendingPathComponent(name+".json");try JSONEncoder().encode(chart).write(to:json,options:.atomic)
@@ -119,7 +123,7 @@ enum SubtitleStore {
      if let cropped=img.cropping(to:rect),let png=UIImage(cgImage:cropped).pngData(){let local=playback.appendingPathComponent(name+".png");try png.write(to:local);artwork=folder.lastPathComponent+"/Playback/"+name+".png"}
     }
     if let meta,let logo=legacySongLogo(folder.appendingPathComponent(meta.m_ArtWorkFileName+".png"),index:meta.m_ArtWorkIndex),let png=logo.pngData(){let local=playback.appendingPathComponent(name+".title.png");try png.write(to:local);titleArtwork=folder.lastPathComponent+"/Playback/"+name+".title.png"}
-    registered.append(Song(id:"pack\(pack).\(name)",title:meta?.m_Title ?? name.replacingOccurrences(of:"_",with:" "),artist:meta?.m_Artist ?? "",art:"",eventCount:chart.events.count,folder:folder.lastPathComponent,movie:folder.lastPathComponent+"/Playback/"+name+".mp4",chartPath:folder.lastPathComponent+"/Playback/"+name+".json",artworkPath:artwork,titleArtworkPath:titleArtwork))
+    registered.append(Song(id:"pack\(pack).\(name)",title:meta?.m_Title ?? name.replacingOccurrences(of:"_",with:" "),artist:meta?.m_Artist ?? "",art:"",eventCount:chart.events.count,folder:folder.lastPathComponent,movie:folder.lastPathComponent+"/Playback/"+name+".mp4",chartPath:folder.lastPathComponent+"/Playback/"+name+".json",artworkPath:artwork,titleArtworkPath:titleArtwork,inputLanguage:.japanese))
    }
    guard !registered.isEmpty else{throw NSError(domain:"MikuPack",code:2,userInfo:[NSLocalizedDescriptionKey:"This pack contains no playable USM files."])}
    try JSONEncoder().encode(registered).write(to:folder.appendingPathComponent("miku64-songs.json"),options:.atomic)
@@ -138,6 +142,31 @@ enum SubtitleStore {
    let detailed=NSError(domain:original.domain,code:original.code,userInfo:info)
    NSLog("NegiFlick import failed: %@",importDetails(detailed));throw detailed
   }
+ }
+ nonisolated private static func stageInitialPack(from source:URL,in stage:URL)throws->Bool {
+  let fm=FileManager.default,dest=stage.appendingPathComponent("Mov_0",isDirectory:true)
+  if fm.fileExists(atPath:dest.path){return false}
+  let catalog:[CatalogEntry]=try resource("dlc-catalog","json").map{try JSONDecoder().decode([CatalogEntry].self,from:Data(contentsOf:$0))} ?? []
+  let initial=catalog.filter{$0.packID==0},names=Set(initial.map{$0.m_MovieDataFileName+".usm"})
+  guard !names.isEmpty,let walk=fm.enumerator(at:source,includingPropertiesForKeys:[.isRegularFileKey],options:[.skipsHiddenFiles]) else{return false}
+  var movies:[String:URL]=[:]
+  for case let file as URL in walk {
+   if file.lastPathComponent.range(of:"^(Mov|Thum)_[0-9]+$",options:.regularExpression) != nil{walk.skipDescendants();continue}
+   if names.contains(file.lastPathComponent),(try file.resourceValues(forKeys:[.isRegularFileKey])).isRegularFile==true {
+    guard movies[file.lastPathComponent]==nil else{throw ChartPackageError.invalid("Duplicate initial song: "+file.lastPathComponent)}
+    movies[file.lastPathComponent]=file
+   }
+  }
+  guard !movies.isEmpty else{return false}
+  try fm.createDirectory(at:dest,withIntermediateDirectories:true)
+  for name in movies.keys.sorted(){guard let movie=movies[name] else{continue};try fm.copyItem(at:movie,to:dest.appendingPathComponent(name))
+   guard let meta=initial.first(where:{$0.m_MovieDataFileName+".usm"==name}) else{continue}
+   for ext in ["png","plist"] {
+    let asset=movie.deletingLastPathComponent().appendingPathComponent(meta.m_ArtWorkFileName+"."+ext),target=dest.appendingPathComponent(asset.lastPathComponent)
+    if fm.fileExists(atPath:asset.path),!fm.fileExists(atPath:target.path){try fm.copyItem(at:asset,to:target)}
+   }
+  }
+  return true
  }
  nonisolated private static func verifyManifest(_ folder:URL)throws {
   let u=folder.appendingPathComponent("verificationFile.dat");guard let data=try? Data(contentsOf:u),let text=String(data:data,encoding:.utf8) else{return}

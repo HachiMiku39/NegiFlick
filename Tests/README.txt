@@ -21,4 +21,9 @@ InputLanguageTests：声明优先、旧谱日语、假名/拉丁识别、汉字�
 
 ArchiveTests.py、DownloadTests.swift、PerformanceTests.swift 保留与现有导入/下载/性能功能的回归测试。某些历史 InterfaceTests 对旧 UI 文案的断言已不适用于中性分支，不把它们记作本轮通过。
 
+原版初始曲包兼容性回归（需自行提供拥有的原版文件；仓库不包含它们）：
+swiftc -module-cache-path work/module-cache ChartLogic.swift InputLanguage.swift UTFTable.swift Tests/LegacyInitialPackTests.swift -o work/legacy-initial-tests
+work/legacy-initial-tests ORIGINAL_ASSETS IMPORTED_MOV_0
+检查导入 manifest 中的 11 首歌、USM 原始 cue 与转换 JSON 一致、55 个难度谱面的假名/方向/BPM/Crimax/间奏保持不变，以及全 COOL 计分。媒体轨道与实际模拟器运行另见 VALIDATION.txt。
+
 这些测试不证明真机触摸手感或每个折叠形态的布局。实际 UI 验证范围记录于 VALIDATION.txt。

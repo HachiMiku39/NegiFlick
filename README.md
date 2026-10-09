@@ -41,7 +41,7 @@ Try the included original practice packs:
 - [Chinese: 你好 · 首字母音游](Examples/pinyin-demo.zip) — six characters, six pinyin initials.
 - [Chart format and authoring guide](CHART-FORMAT.txt).
 
-The importer also retains compatibility with user-provided legacy `Mov_*` / `Thum_*` song-pack ZIP, RAR, and folder formats. Original song packs are not distributed here. NegiFlick packs are a separate format and are not compatible with AstroDX's `.adx` format.
+The importer also retains compatibility with user-provided legacy `Mov_*` / `Thum_*` song-pack ZIP, RAR, and folder formats. The original MikuFlick2 initial songs can also be imported from a folder or archive containing their flat `.usm` files and `music_00_01` through `music_00_04` artwork atlases. They are registered as `Mov_0`; an App/Payload wrapper is supported, and application executables are never run. Original song packs are not distributed here. NegiFlick packs are a separate format and are not compatible with AstroDX's `.adx` format.
 
 其他功能包括 CLASSIC / GRID / LIST 选曲、MV、歌词与译文导入、带进度与速度的并发下载列表，以及开发者自动演奏和性能提示。应用通过用户选择的文件或目录访问内容，网络下载使用 HTTPS。
 
