@@ -69,3 +69,16 @@ Report bugs through [GitHub Issues](https://github.com/HachiMiku39/NegiFlick/iss
 The presentation and separation of the app from user-imported levels are inspired by [AstroDX](https://github.com/2394425147/astrodx) and its [installation guide](https://wiki.astrodx.com/en/install/ios). NegiFlick does not use AstroDX code, artwork, or chart formats and is not affiliated with AstroDX or SEGA.
 
 NegiFlick retains the gameplay rules researched in MikuFlick64; it is not presented as a clean-room implementation. This repository provides source for development and review. No application-source license has been selected yet; third-party components retain their own licenses. App Store submission has not taken place.
+
+
+## NegiFlick Studio — 可視化作譜 / ビジュアルエディタ
+
+[オンラインエディタ](https://HachiMiku39.github.io/NegiFlick/) · [日本語制作ガイド](docs/chart-authoring-ja.txt)
+
+動画はローカルファイルとして開き、サーバーへ送信しません。LRC / 拡張 LRC / SRT / lyrics JSON を読み込み、かな・単語をタイムラインに仮配置した後、ドラッグや再生中の Enter で命中時刻を調整します。各文字の EASY / NORMAL / HARD / EXTREME / BTL スイッチで、その難度の入力対象を決めます。動画・カバーを含む NegiFlick 曲包 ZIP をブラウザ内で書き出せます。
+
+編集プロジェクトは JSON で保存・再開でき、文字と時刻はブラウザ内にも自動保存されます。動画は再読み込み時に選び直してください。日本語の漢字には作者が読みを指定します。中国語は各漢字の拼音首字母を指定し、英語は各単語の首字母を使います。
+
+現在は通常文字ノーツと Crimax に対応。途中 BPM 変更・間奏ノーツの作成 UI は未実装です。プレビューは編集用で、ゲーム内の判定再現ではありません。AstroDX / simai は作譜ワークフローの参考であり、エディタの出力は NegiFlick 独自形式です。
+
+静的ファイルは `docs/` にあります。依存パッケージ・CDN・アップロード API は不要です。GitHub Pages は main の `/docs` を公開元にします。ローカルでは `python3 -m http.server --directory docs` などの静的サーバーで開けます。

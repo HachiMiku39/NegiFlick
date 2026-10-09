@@ -55,3 +55,12 @@ GameEngine SHA256：7d2b0501701514f812c34f6cfb4acc97ff00b119f685797a7cb81f3b7002
 - 游戏中日文键盘、假名/方向轨道、歌词与视频可显示。修正初始歌曲作者字段的 $null 占位符，重复导入后选曲页显示“初音ミク / malo”等正确作者信息。
 - 本轮未进行 11 首全部手动打歌、真机触摸时序或其他设备/形态的穷举验证。
 - 测试使用的原版媒体只留在本地测试目录和模拟器导入目录，未加入 NegiFlick 项目或公开源码包。公开 Scheme 已恢复，未保留自动导入参数或本机资源路径。
+
+NegiFlick Studio 网页作谱验证（2026-10-09）：
+- Node WebEditorTests：日文假名方向、中英文首字母、LRC/扩展 LRC/SRT/JSON、仮配置、五档掩码、30 Hz 同时 tick 拒绝、先读不足、项目草稿、ZIP CRC 均通过。
+- 网页导出的 ja/en/zh authoring 与实际浏览器导出的 authoring 均通过现有 Swift CompileChart；判定逻辑未改。
+- 浏览器实际使用本地原创 Kana Sprint MP4、逐字难度开关、命中时刻修改与撤销、拖动 2.1→2.3 秒与撤销、LRC 文件选择、汉字歌词的读音仮配置、检查及 ZIP 下载成功。
+- 浏览器生成的 ZIP CRC 检查通过；包含 negiflick-pack.json / authoring.json / media.mp4，媒体字节与本地选中视频完全一致。
+- 1440×1000 桌面、390×844 手机布局观察通过；时间轴横向滚动。浏览器控制台无错误。
+- 视频仅用 blob URL；无 fetch / XHR / 上传 API / 分析脚本 / CDN 依赖；connect-src 'none'。编辑文字与时刻保存在本地 localStorage，媒体需重新选择。
+- 本轮没有将网页新作曲包运行到模拟器结算；验证范围为真实浏览器交互、ZIP 导出和现有 Swift 编译器兼容。

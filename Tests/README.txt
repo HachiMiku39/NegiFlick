@@ -27,3 +27,7 @@ work/legacy-initial-tests ORIGINAL_ASSETS IMPORTED_MOV_0
 检查导入 manifest 中的 11 首歌、USM 原始 cue 与转换 JSON 一致、55 个难度谱面的假名/方向/BPM/Crimax/间奏保持不变，以及全 COOL 计分。媒体轨道与实际模拟器运行另见 VALIDATION.txt。
 
 这些测试不证明真机触摸手感或每个折叠形态的布局。实际 UI 验证范围记录于 VALIDATION.txt。
+
+ブラウザ作譜エディタ：
+node Tests/WebEditorTests.mjs /tmp/negi-editor-tests GameAssets/kana-sprint.mp4
+かな/英語/中国語の入力、LRC/SRT/JSON、行内仮配置、難度マスク、同一 30 Hz tick の衝突、先読み、編集中プロジェクト、ZIP CRC を検証。出力された ja/en/zh-authoring.json は Tools/CompileChart.swift でも検証できます。
