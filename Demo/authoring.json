@@ -1,0 +1,1062 @@
+{
+  "schemaVersion": 1,
+  "bpm": 120,
+  "duration": 30,
+  "leadTimeMS": 1700,
+  "notes": [
+    {
+      "time": 2.1,
+      "kana": "い",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 2.35,
+      "kana": "ろ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 2.6,
+      "kana": "は",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 2.85,
+      "kana": "に",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 3.1,
+      "kana": "ほ",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 3.35,
+      "kana": "へ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 3.6,
+      "kana": "と",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 3.85,
+      "kana": "ち",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 4.1,
+      "kana": "り",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 4.35,
+      "kana": "ぬ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 4.6,
+      "kana": "る",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 4.85,
+      "kana": "を",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 5.1,
+      "kana": "わ",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 5.35,
+      "kana": "か",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 5.6,
+      "kana": "ぎ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 5.85,
+      "kana": "た",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 6.1,
+      "kana": "れ",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 6.35,
+      "kana": "そ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 6.6,
+      "kana": "つ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 6.85,
+      "kana": "ね",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 7.1,
+      "kana": "な",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 7.35,
+      "kana": "ら",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 7.6,
+      "kana": "む",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 7.85,
+      "kana": "う",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 8.1,
+      "kana": "い",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 8.35,
+      "kana": "の",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 8.6,
+      "kana": "お",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 8.85,
+      "kana": "く",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 9.1,
+      "kana": "や",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 9.35,
+      "kana": "ま",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 9.6,
+      "kana": "ぱ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 9.85,
+      "kana": "ふ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 10.1,
+      "kana": "こ",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 10.35,
+      "kana": "え",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 10.6,
+      "kana": "て",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 10.85,
+      "kana": "あ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 11.1,
+      "kana": "さ",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 11.35,
+      "kana": "き",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 11.6,
+      "kana": "ゆ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 11.85,
+      "kana": "め",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 12.1,
+      "kana": "み",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 12.35,
+      "kana": "し",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 12.6,
+      "kana": "え",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 12.85,
+      "kana": "ひ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 13.1,
+      "kana": "も",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 13.35,
+      "kana": "せ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 13.6,
+      "kana": "す",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 13.85,
+      "kana": "い",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 14.1,
+      "kana": "ろ",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 14.35,
+      "kana": "は",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 14.6,
+      "kana": "に",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 14.85,
+      "kana": "ほ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 15.1,
+      "kana": "へ",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 15.35,
+      "kana": "と",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 15.6,
+      "kana": "ち",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 15.85,
+      "kana": "っ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 16.1,
+      "kana": "ぬ",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 16.35,
+      "kana": "る",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 16.6,
+      "kana": "を",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 16.85,
+      "kana": "わ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 17.1,
+      "kana": "か",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 17.35,
+      "kana": "よ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 17.6,
+      "kana": "た",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 17.85,
+      "kana": "れ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 18.1,
+      "kana": "そ",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 18.35,
+      "kana": "つ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 18.6,
+      "kana": "ね",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 18.85,
+      "kana": "な",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 19.1,
+      "kana": "ら",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 19.35,
+      "kana": "む",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 19.6,
+      "kana": "ょ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 19.85,
+      "kana": "い",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 20.1,
+      "kana": "の",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 20.35,
+      "kana": "お",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 20.6,
+      "kana": "く",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 20.85,
+      "kana": "や",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 21.1,
+      "kana": "ま",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 21.35,
+      "kana": "け",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 21.6,
+      "kana": "ふ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 21.85,
+      "kana": "こ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 22.1,
+      "kana": "え",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 22.35,
+      "kana": "て",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 22.6,
+      "kana": "あ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 22.85,
+      "kana": "さ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 23.1,
+      "kana": "き",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 23.35,
+      "kana": "ゆ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 23.6,
+      "kana": "め",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 23.85,
+      "kana": "み",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 24.1,
+      "kana": "し",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 24.35,
+      "kana": "え",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 24.6,
+      "kana": "ひ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 24.85,
+      "kana": "ー",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 25.1,
+      "kana": "せ",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 25.35,
+      "kana": "す",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 25.6,
+      "kana": "い",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 25.85,
+      "kana": "ろ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 26.1,
+      "kana": "は",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 26.35,
+      "kana": "に",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 26.6,
+      "kana": "ほ",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 26.85,
+      "kana": "へ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": true
+    },
+    {
+      "time": 27.1,
+      "kana": "と",
+      "difficulties": [
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": true
+    },
+    {
+      "time": 27.35,
+      "kana": "ち",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": true
+    },
+    {
+      "time": 27.6,
+      "kana": "り",
+      "difficulties": [
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": true
+    },
+    {
+      "time": 27.85,
+      "kana": "ぬ",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": true
+    },
+    {
+      "time": 28.1,
+      "kana": "る",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": true
+    },
+    {
+      "time": 28.35,
+      "kana": "を",
+      "difficulties": [
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": true
+    }
+  ],
+  "lyrics": [
+    {
+      "time": 0,
+      "text": "Kana Sprint — original practice track"
+    }
+  ]
+}

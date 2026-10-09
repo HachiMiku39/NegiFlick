@@ -1,0 +1,38 @@
+NegiFlick 0.1.0 开发验证 — 2026-10-08
+
+Foundation 逻辑测试：RulesTests、CustomChartTests、InputLanguageTests 均通过。
+覆盖 31 个时序边界、21 档 BPM 校准、五档启用掩码、得分/连击/Crimax/BTL/失败、数据命令及包路径校验。
+语言测试覆盖 ja/zh/en 显式优先、假名/拉丁推断、汉字歧义拒绝、26 字母唯一映射、拼音显示符号与输入符号分离、方向错误 SAFE。
+汉字附有 input 字母而未声明语言也须拒绝，避免由拼音字母误推断为英文。
+
+Xcode 27.2 beta 2，通过 Xcode 与 Device Hub UI 编译/运行：
+- Duo iOS 27.1：CLASSIC 选曲、折叠竖屏与 Book 横屏布局观察；真实 ZIP 导入成功。
+  原创 Kana Sprint EXTREME 自动演奏：106 COOL，MAX COMBO 106，stage 33200 + bonus 28500 = 61700。
+  本地用户素材《伊吕波歌》30 秒样例 EXTREME：136 COOL，MAX COMBO 136，48200 + 43500 = 91700。
+  英文 Alphabet Sprint NORMAL：26 COOL，MAX COMBO 26，7800 + 1800 = 9600。
+  中文“你好 · 输入音游” NORMAL：16 COOL，MAX COMBO 16，4800 + 700 = 5500。
+  中英键盘、汉字/输入字母、引导方向与轨道显示一致。自动演奏结果不保存。
+- iPhone Air iOS 27.2：中文 ZIP 导入、首次引导、竖屏 CLASSIC 选曲与 PINYIN 游戏键盘可见；暂停/恢复和四次漏判后的失败结算可进入。
+- iPad Pro iPadOS 27.2：中文 ZIP 导入、竖屏 CLASSIC 选曲、PINYIN 游戏键盘与汉字/字母提示、暂停/恢复、失败结算可进入；旋转到横屏后结算可显示。
+
+范围限制：未进行真机手动完整打歌、人工触摸时序校准或所有页面/折叠形态穷举测试。英文完整曲自动演奏只在 Duo 上测试。历史下载/原曲包批量导入测试不计作本轮复验。
+上述 16/26 音符是调整前的字母实验记录。用户已明确正式规则：中文每汉字拼音首字母，英文每单词首字母；当前源码及 Examples 已按此更新。后续首字母验证记录见文末。
+
+素材审计：本体 28 个媒体/图标文件未与旧 MikuFlick64 GameAssets 媒体发生 SHA256 相同匹配。
+仅内置原创 Kana Sprint；兼容曲包信息是 JSON 数据，原版游戏媒体和《伊吕波歌》片段不在项目/本体中。
+判定/得分/效果规则函数体与 r6 完全相同；GameEngine 类完全相同。新增的是输入语言、按键/方向映射与中性素材/UI。
+规则 SHA256：58240b96fe126401b27bad024c96d86212c7f11d32ab0f240260bda4ecdc7de2
+GameEngine SHA256：7d2b0501701514f812c34f6cfb4acc97ff00b119f685797a7cb81f3b7002ae41
+
+源码 Scheme 已清除本机绝对路径与自动导入参数；DEBUG 下仍可手动提供 --import-pack 用于开发导入复现。
+这是已在模拟器运行的开发原型，未导出 NegiFlick IPA，未提交或发布到 App Store。
+
+首字母玩法修订验证（2026-10-08）：
+- Foundation：中文每字拼音首字母、英文每词首字母、don't 单词单位、首字母推导、多音字作者覆盖、错误词内字母/多字单位拒绝、完整词提示 JSON 往返均通过。
+- RulesTests 和 CustomChartTests 再次通过；判定/计分/效果规则函数体与原分支完全相同。
+- 英文样例：Hello world we play music with happy friends → H W W P M W H F。
+  iPad Pro iPadOS 27.2 实际 ZIP 导入及全曲自动演奏：8 COOL，MAX COMBO 8，stage 2400 + bonus 200 = 2600。
+  实际游戏轨道可显示完整单词 PLAY 及输入目标 P。
+- 中文样例：你好输入音游 → N H S R Y Y，6 个汉字、6 个音符。编译器五档全 COOL 预期均为 1900 分。
+  iPad Pro iPadOS 27.2 实际 ZIP 导入及全曲自动演奏：6 COOL，MAX COMBO 6，stage 1800 + bonus 100 = 1900。
+本次修订未在 Air / Duo 上重新完整打歌；其布局检查为前一轮记录，不能等同于本轮手动演奏测试。

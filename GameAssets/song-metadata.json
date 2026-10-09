@@ -1,0 +1,964 @@
+{
+  "koi_wa_sensou": {
+    "bpm": 175,
+    "levels": [
+      1,
+      2,
+      4,
+      5,
+      9
+    ],
+    "atlas": "music_00_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_00_01_00"
+  },
+  "hajimete_no_oto": {
+    "bpm": 100,
+    "levels": [
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_00_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_00_01_01"
+  },
+  "roshin_yuukai": {
+    "bpm": 165,
+    "levels": [
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_00_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_00_01_02"
+  },
+  "migikata_no_tyou": {
+    "bpm": 140,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_00_02",
+    "artworkIndex": 0,
+    "titleAsset": "logo_00_02_00"
+  },
+  "Just_be_friends": {
+    "bpm": 128,
+    "levels": [
+      2,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_00_02",
+    "artworkIndex": 1,
+    "titleAsset": "logo_00_02_01"
+  },
+  "cloverclub": {
+    "bpm": 150,
+    "levels": [
+      2,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_00_02",
+    "artworkIndex": 2,
+    "titleAsset": "logo_00_02_02"
+  },
+  "magnet": {
+    "bpm": 108,
+    "levels": [
+      2,
+      4,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_00_03",
+    "artworkIndex": 0,
+    "titleAsset": "logo_00_03_00"
+  },
+  "promise": {
+    "bpm": 138,
+    "levels": [
+      2,
+      4,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_00_03",
+    "artworkIndex": 1,
+    "titleAsset": "logo_00_03_01"
+  },
+  "ura_omote_lovers": {
+    "bpm": 159,
+    "levels": [
+      3,
+      4,
+      7,
+      8,
+      9
+    ],
+    "atlas": "music_00_03",
+    "artworkIndex": 2,
+    "titleAsset": "logo_00_03_02"
+  },
+  "hatsune_miku_no_gekisyou": {
+    "bpm": 200,
+    "levels": [
+      3,
+      5,
+      8,
+      9,
+      9
+    ],
+    "atlas": "music_00_04",
+    "artworkIndex": 0,
+    "titleAsset": "logo_00_04_00"
+  },
+  "tajyuumirai_no_quartet": {
+    "bpm": 195,
+    "levels": [
+      1,
+      2,
+      4,
+      5,
+      9
+    ],
+    "atlas": "music_00_04",
+    "artworkIndex": 1,
+    "titleAsset": "logo_00_04_01"
+  },
+  "kantarera": {
+    "bpm": 144,
+    "levels": [
+      2,
+      3,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_01_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_01_01_00"
+  },
+  "gemini": {
+    "bpm": 90,
+    "levels": [
+      3,
+      4,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_01_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_01_01_01"
+  },
+  "colorful_sexy": {
+    "bpm": 220,
+    "levels": [
+      2,
+      4,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_01_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_01_01_02"
+  },
+  "kotti_muite_baby": {
+    "bpm": 185,
+    "levels": [
+      2,
+      4,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_02_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_02_01_00"
+  },
+  "Yellow": {
+    "bpm": 127,
+    "levels": [
+      1,
+      2,
+      4,
+      5,
+      9
+    ],
+    "atlas": "music_02_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_02_01_01"
+  },
+  "colorful_melody": {
+    "bpm": 185,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_02_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_02_01_02"
+  },
+  "dear_cocoa_girls": {
+    "bpm": 180,
+    "levels": [
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_03_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_03_01_00"
+  },
+  "iyaiya_seijin": {
+    "bpm": 170,
+    "levels": [
+      1,
+      4,
+      7,
+      8,
+      9
+    ],
+    "atlas": "music_03_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_03_01_01"
+  },
+  "soiyassa": {
+    "bpm": 180,
+    "levels": [
+      2,
+      4,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_03_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_03_01_02"
+  },
+  "mikumiku_ni_siteyannyo": {
+    "bpm": 160,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_04_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_04_01_00"
+  },
+  "lukaluka_nightfever": {
+    "bpm": 160,
+    "levels": [
+      2,
+      3,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_04_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_04_01_01"
+  },
+  "nightmare_partynight": {
+    "bpm": 175,
+    "levels": [
+      1,
+      2,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_04_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_04_01_02"
+  },
+  "kokoro": {
+    "bpm": 140,
+    "levels": [
+      1,
+      2,
+      4,
+      7,
+      9
+    ],
+    "atlas": "music_05_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_05_01_00"
+  },
+  "VOiCE": {
+    "bpm": 135,
+    "levels": [
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_05_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_05_01_01"
+  },
+  "hinekuremono": {
+    "bpm": 105,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_05_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_05_01_02"
+  },
+  "tsugaikogarashi": {
+    "bpm": 115,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_06_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_06_01_00"
+  },
+  "kyodai_syoujyo": {
+    "bpm": 135,
+    "levels": [
+      1,
+      3,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_06_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_06_01_01"
+  },
+  "rinrin_signal": {
+    "bpm": 124,
+    "levels": [
+      1,
+      3,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_06_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_06_01_02"
+  },
+  "puzzle": {
+    "bpm": 85,
+    "levels": [
+      1,
+      2,
+      4,
+      5,
+      9
+    ],
+    "atlas": "music_07_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_07_01_00"
+  },
+  "meiteki_cybernetics": {
+    "bpm": 145,
+    "levels": [
+      1,
+      2,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_07_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_07_01_01"
+  },
+  "sekiranunn_graffiti": {
+    "bpm": 138,
+    "levels": [
+      2,
+      3,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_07_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_07_01_02"
+  },
+  "musunde_hiraite_rasetsuto_mukuro": {
+    "bpm": 148,
+    "levels": [
+      2,
+      4,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_08_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_08_01_00"
+  },
+  "houkai_utahime": {
+    "bpm": 226,
+    "levels": [
+      1,
+      2,
+      4,
+      5,
+      9
+    ],
+    "atlas": "music_08_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_08_01_01"
+  },
+  "saa_dotti": {
+    "bpm": 220,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_08_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_08_01_02"
+  },
+  "kogane_no_seiya_sousetsu_ni_kuchite": {
+    "bpm": 185,
+    "levels": [
+      2,
+      4,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_09_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_09_01_00"
+  },
+  "hajimeteno_koiga_owarutoki": {
+    "bpm": 180,
+    "levels": [
+      2,
+      3,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_09_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_09_01_01"
+  },
+  "strobo_nights": {
+    "bpm": 125,
+    "levels": [
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_09_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_09_01_02"
+  },
+  "jugemu_sequencer": {
+    "bpm": 200,
+    "levels": [
+      1,
+      3,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_10_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_10_01_00"
+  },
+  "iroha_uta": {
+    "bpm": 172,
+    "levels": [
+      2,
+      3,
+      7,
+      9,
+      9
+    ],
+    "atlas": "music_10_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_10_01_01"
+  },
+  "amata_no_mai": {
+    "bpm": 183,
+    "levels": [
+      1,
+      3,
+      6,
+      9,
+      9
+    ],
+    "atlas": "music_10_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_10_01_02"
+  },
+  "double_lariat": {
+    "bpm": 138,
+    "levels": [
+      1,
+      3,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_11_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_11_01_00"
+  },
+  "hello_planet": {
+    "bpm": 150,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_11_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_11_01_01"
+  },
+  "from_y_to_y": {
+    "bpm": 98,
+    "levels": [
+      1,
+      2,
+      4,
+      7,
+      9
+    ],
+    "atlas": "music_11_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_11_01_02"
+  },
+  "mikumiku_kinn_ni_gotyuui": {
+    "bpm": 139,
+    "levels": [
+      1,
+      2,
+      4,
+      7,
+      9
+    ],
+    "atlas": "music_12_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_12_01_00"
+  },
+  "koiiro_byoutou": {
+    "bpm": 175,
+    "levels": [
+      2,
+      3,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_12_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_12_01_01"
+  },
+  "nekomimi_switch": {
+    "bpm": 160,
+    "levels": [
+      1,
+      3,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_12_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_12_01_02"
+  },
+  "hontoha_wakatteru": {
+    "bpm": 130,
+    "levels": [
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_13_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_13_01_00"
+  },
+  "utani_katachiha_naikeredo": {
+    "bpm": 98,
+    "levels": [
+      1,
+      2,
+      4,
+      5,
+      9
+    ],
+    "atlas": "music_13_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_13_01_01"
+  },
+  "spica": {
+    "bpm": 162,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_13_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_13_01_02"
+  },
+  "yumeyume": {
+    "bpm": 160,
+    "levels": [
+      1,
+      2,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_14_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_14_01_00"
+  },
+  "innocence": {
+    "bpm": 125,
+    "levels": [
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_14_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_14_01_01"
+  },
+  "worlds_end_dancehall": {
+    "bpm": 171,
+    "levels": [
+      2,
+      4,
+      6,
+      9,
+      9
+    ],
+    "atlas": "music_14_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_14_01_02"
+  },
+  "on_the_rocks": {
+    "bpm": 150,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_15_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_15_01_00"
+  },
+  "no_logic": {
+    "bpm": 120,
+    "levels": [
+      1,
+      4,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_15_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_15_01_01"
+  },
+  "mousou_sketch": {
+    "bpm": 174,
+    "levels": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_15_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_15_01_02"
+  },
+  "the_secretgarden": {
+    "bpm": 133,
+    "levels": [
+      2,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_16_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_16_01_00"
+  },
+  "39": {
+    "bpm": 175,
+    "levels": [
+      2,
+      4,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_16_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_16_01_01"
+  },
+  "sono_itibyou_suro-moshon": {
+    "bpm": 165,
+    "levels": [
+      2,
+      3,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_16_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_16_01_02"
+  },
+  "kodokunohate": {
+    "bpm": 180,
+    "levels": [
+      1,
+      3,
+      5,
+      8,
+      9
+    ],
+    "atlas": "music_17_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_17_01_00"
+  },
+  "rolling_girl": {
+    "bpm": 195,
+    "levels": [
+      2,
+      4,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_17_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_17_01_01"
+  },
+  "toumei_suisai": {
+    "bpm": 185,
+    "levels": [
+      2,
+      4,
+      7,
+      8,
+      9
+    ],
+    "atlas": "music_17_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_17_01_02"
+  },
+  "popipo": {
+    "bpm": 150,
+    "levels": [
+      2,
+      3,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_96_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_96_01_00"
+  },
+  "koi_suru_vocaloid": {
+    "bpm": 130,
+    "levels": [
+      1,
+      3,
+      4,
+      6,
+      9
+    ],
+    "atlas": "music_96_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_96_01_01"
+  },
+  "hatsunemiku_no_syoushitsu": {
+    "bpm": 240,
+    "levels": [
+      4,
+      6,
+      8,
+      9,
+      9
+    ],
+    "atlas": "music_96_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_96_01_02"
+  },
+  "melt": {
+    "bpm": 170,
+    "levels": [
+      1,
+      2,
+      6,
+      7,
+      9
+    ],
+    "atlas": "music_97_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_97_01_00"
+  },
+  "stargazer": {
+    "bpm": 195,
+    "levels": [
+      2,
+      3,
+      5,
+      7,
+      9
+    ],
+    "atlas": "music_97_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_97_01_01"
+  },
+  "moon": {
+    "bpm": 150,
+    "levels": [
+      1,
+      3,
+      4,
+      7,
+      9
+    ],
+    "atlas": "music_97_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_97_01_02"
+  },
+  "world_is_mine": {
+    "bpm": 165,
+    "levels": [
+      2,
+      3,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_98_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_98_01_00"
+  },
+  "anata_no_utahime": {
+    "bpm": 180,
+    "levels": [
+      2,
+      4,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_98_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_98_01_01"
+  },
+  "timelimit": {
+    "bpm": 140,
+    "levels": [
+      2,
+      3,
+      5,
+      6,
+      9
+    ],
+    "atlas": "music_98_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_98_01_02"
+  },
+  "romio_to_cinderella": {
+    "bpm": 170,
+    "levels": [
+      2,
+      4,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_99_01",
+    "artworkIndex": 0,
+    "titleAsset": "logo_99_01_00"
+  },
+  "electric_angew": {
+    "bpm": 150,
+    "levels": [
+      1,
+      3,
+      6,
+      8,
+      9
+    ],
+    "atlas": "music_99_01",
+    "artworkIndex": 1,
+    "titleAsset": "logo_99_01_01"
+  },
+  "finder": {
+    "bpm": 130,
+    "levels": [
+      1,
+      3,
+      4,
+      7,
+      9
+    ],
+    "atlas": "music_99_01",
+    "artworkIndex": 2,
+    "titleAsset": "logo_99_01_02"
+  }
+}

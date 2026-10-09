@@ -1,0 +1,95 @@
+{
+  "bpm" : 120,
+  "difficulties" : [
+    {
+      "crimaxNotes" : 1,
+      "difficulty" : "EASY",
+      "directions" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "firstHit" : 2.1000000000000001,
+      "lastHit" : 28.100000000000001,
+      "notes" : 14,
+      "perfectScore" : 4700,
+      "rainbowNotes" : 0,
+      "rank" : "Perfect!"
+    },
+    {
+      "crimaxNotes" : 2,
+      "difficulty" : "NORMAL",
+      "directions" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "firstHit" : 2.1000000000000001,
+      "lastHit" : 28.100000000000001,
+      "notes" : 27,
+      "perfectScore" : 10050,
+      "rainbowNotes" : 0,
+      "rank" : "Perfect!"
+    },
+    {
+      "crimaxNotes" : 3,
+      "difficulty" : "HARD",
+      "directions" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "firstHit" : 2.1000000000000001,
+      "lastHit" : 28.100000000000001,
+      "notes" : 53,
+      "perfectScore" : 23150,
+      "rainbowNotes" : 0,
+      "rank" : "Perfect!"
+    },
+    {
+      "crimaxNotes" : 7,
+      "difficulty" : "EXTREME",
+      "directions" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "firstHit" : 2.1000000000000001,
+      "lastHit" : 28.366666666666667,
+      "notes" : 106,
+      "perfectScore" : 61700,
+      "rainbowNotes" : 7,
+      "rank" : "Perfect!"
+    },
+    {
+      "crimaxNotes" : 7,
+      "difficulty" : "BTL",
+      "directions" : [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "firstHit" : 2.1000000000000001,
+      "lastHit" : 28.366666666666667,
+      "notes" : 106,
+      "perfectScore" : 61700,
+      "rainbowNotes" : 7,
+      "rank" : "Perfect!"
+    }
+  ],
+  "duration" : 30,
+  "integration" : "Existing r6 ChartCompiler, OriginalRules, OriginalScore and OriginalEffects",
+  "invalidInputProbes" : "PASS",
+  "timeModel" : "30 Hz media ticks; authoring times are hit times",
+  "timingAndInputValidation" : "PASS"
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "inputLanguage": "zh",
+  "bpm": 120,
+  "duration": 30,
+  "leadTimeMS": 1700,
+  "notes": [
+    {
+      "time": 3.0,
+      "kana": "你",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 7.0,
+      "kana": "好",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 11.0,
+      "kana": "输",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 15.0,
+      "kana": "入",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 19.0,
+      "kana": "音",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 23.0,
+      "kana": "游",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    }
+  ],
+  "lyrics": [
+    {
+      "time": 0,
+      "text": "你好输入音游"
+    }
+  ]
+}

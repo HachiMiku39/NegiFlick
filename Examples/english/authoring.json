@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "inputLanguage": "en",
+  "bpm": 120,
+  "duration": 30,
+  "leadTimeMS": 1700,
+  "notes": [
+    {
+      "time": 3.0,
+      "kana": "Hello",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 5.857142857142858,
+      "kana": "world",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 8.714285714285715,
+      "kana": "we",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 11.571428571428571,
+      "kana": "play",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 14.428571428571429,
+      "kana": "music",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 17.285714285714285,
+      "kana": "with",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 20.142857142857142,
+      "kana": "happy",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    },
+    {
+      "time": 23.0,
+      "kana": "friends",
+      "difficulties": [
+        "EASY",
+        "NORMAL",
+        "HARD",
+        "EXTREME",
+        "BTL"
+      ],
+      "crimax": false
+    }
+  ],
+  "lyrics": [
+    {
+      "time": 0,
+      "text": "Hello world we play music with happy friends"
+    }
+  ]
+}

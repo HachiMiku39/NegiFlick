@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "english-demo",
+  "title": "Word Initial Sprint",
+  "artist": "NegiFlick original practice audio",
+  "inputLanguage": "en",
+  "bpm": 120,
+  "levels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "chart": "authoring.json",
+  "media": "media.mp4",
+  "cover": "cover.png",
+  "authoring": true
+}

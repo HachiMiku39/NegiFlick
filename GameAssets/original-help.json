@@ -1,0 +1,27 @@
+{
+  "pages": [
+    {
+      "id": 1,
+      "titles": {
+        "en": "Input rhythm",
+        "zh": "输入与节奏"
+      },
+      "bodies": {
+        "en": "Tap the base kana, or flick left, up, right and down to enter another kana in its row. Follow the notes on the media clock. Voiced and small kana use the modifier controls.",
+        "zh": "点击基础假名，或向左、上、右、下滑动输入同一行的其他假名。跟随轨道与音乐；浊音、半浊音及小假名使用修饰按钮。"
+      }
+    },
+    {
+      "id": 8,
+      "titles": {
+        "en": "Import chart packages",
+        "zh": "导入谱包"
+      },
+      "bodies": {
+        "en": "Choose ZIP/RAR or a folder. Custom ZIP packages contain negiflick-pack.json, a chart and an MP4 media file. Use only content you can share. Compatible legacy packs are decoded locally; no original media is included in the app.",
+        "zh": "选择 ZIP/RAR 或文件夹。自制 ZIP 包包含 negiflick-pack.json、谱面与 MP4 媒体。兼容原曲包在设备本地解码；App 不内置原版媒体。"
+      }
+    }
+  ],
+  "licenseOriginal": "Third-party codec sources and LGPL license notices are included in the source distribution. Built-in graphics and demo audio are independently generated for NegiFlick."
+}

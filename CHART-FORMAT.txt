@@ -1,0 +1,34 @@
+NegiFlick 自制谱 v1
+
+negiflick-pack.json 示例：
+{
+ "schemaVersion":1,"id":"my-song","title":"My Song","artist":"Me",
+ "inputLanguage":"en","bpm":120,"levels":[1,2,3,4,5],
+ "chart":"authoring.json","media":"media.mp4","cover":"cover.png","authoring":true
+}
+levels 顺序固定为 EASY、NORMAL、HARD、EXTREME、BTL；缺少的难度可写 null。
+可选 titleArtwork、translations（译文 JSON 相对路径数组）。所有路径必须是曲包内相对文件路径，不能包含 ..、绝对路径或符号链接越界。
+
+authoring.json 示例：
+{
+ "schemaVersion":1,"inputLanguage":"en","bpm":120,"duration":30,"leadTimeMS":1700,
+ "notes":[{"time":3,"kana":"A","difficulties":["NORMAL","HARD"],"crimax":false}],
+ "lyrics":[{"time":0,"text":"My original lyrics"}]
+}
+time 是播放器时间上的命中时间，秒。编译器按现有 30 Hz 规则计算出现时间，不把 time 当作出现时间。首个命中需要足够预备时间（默认约 1.7 秒）。同一难度、同一 tick 不允许两个音符。difficulties 必须使用英语固定名称。
+
+输入语言
+- 谱面声明 inputLanguage 优先；可为 ja / zh / en，接受 zh-Hans、en-US 等地区标签。
+- 未声明时：音符含假名选日语，纯拉丁字母选英语。界面语言、歌曲标题、歌词译文语言均不影响键盘。
+- 仅含汉字无法可靠区分中日文，须显式声明；混合假名/拉丁目标也须显式声明。
+- 原版 USM 曲包保留日语输入模式。
+- ja：kana 是单个日语假名；支持浊音、半浊音、小假名和长音。使用原有假名键盘。
+- en：每个英文单词对应一个音符，kana 写完整单词，例如 Hello；输入目标自动取首字母 H。Hello world 必须拆成两个音符，输入 H、W。大小写不影响目标；don't 作为一个词输入 D；标点不单独编排音符。input 可省略，若填写必须等于首字母，不能指定词中其它字母。轨道显示完整单词与首字母提示。
+- zh：每个汉字对应一个音符，kana 写单个汉字，例如 你，输入拼音首字母 N。你好 编排两个音符，输入 N、H。input 可省略并使用系统汉字转拼音的首字母；多音字由作者根据歌词语境填写单字母 input 覆盖，例如 重 在“重复”中写 C，在“重量”中写 Z。每字只输入首字母，不编排完整拼音。
+- 字母组第一字母轻点，第二左滑，第三上滑，第四右滑；使用与日语相同的按下/释放时序、方向错误与按键错误判定。中英文均为首字母玩法，不使用系统输入法候选字选择。
+
+也可导入编译后的低层 chart.json（authoring:false），结构为 events[{time,parameter}]，并声明 inputLanguage。非日语每个音符可用 noteInputs 字典把事件序号映射到首字母；英文 noteWords 字典按同一事件序号保存完整单词，事件命令本身仍只有首字母，保留旧时序格式。通常应由 Tools/CompileChart.swift 生成，避免手动维护事件索引。
+原有数据命令 0/1/2/3/4/5/6/7/8 保留；自制谱导入会校验参数、大小与命中时间。
+
+离线编译
+使用 ChartLogic.swift、InputLanguage.swift、CustomChart.swift、Tools/CompileChart.swift 编译命令行程序；运行 compile-chart authoring.json chart.json 会输出各难度音符数和全 COOL 预期分数。
