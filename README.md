@@ -6,7 +6,7 @@ Turn kana, Chinese characters, and English words into rhythm targets. Tap or fli
 
 **输入法音游：跟随音乐，用轻点和滑动输入假名、汉字拼音首字母或英文单词首字母。**
 
-NegiFlick is a standalone development project derived from [MikuFlick64](https://github.com/HachiMiku39/mikuflick64). It uses independently generated visual and audio assets. The application does not bundle SEGA game artwork, recordings, movies, voices, or fonts.
+NegiFlick is a standalone development project derived from [MikuFlick64](https://github.com/HachiMiku39/mikuflick64). It uses independently generated visual and audio assets. The application does not bundle SEGA game artwork, recordings, movies, voices, or fonts. See [asset provenance](ASSET-PROVENANCE.txt) for the original sound-generation checks.
 
 ## Play in three languages
 
