@@ -59,7 +59,8 @@ export function parseLyrics(text,ext='lrc'){
   for(const line of text.split('\n')){
    const tags=[...line.matchAll(/\[(\d{1,2}:\d{2}(?:[.,]\d+)?)\]/g)];if(!tags.length)continue;
    const body=line.replace(/\[\d{1,2}:\d{2}(?:[.,]\d+)?\]/g,'').trim();
-   const ts=[...body.matchAll(/<(\d{1,2}:\d{2}(?:[.,]\d+)?)>([^<]*)/g)].map(m=>({time:stamp(m[1])+off,text:m[2].trim()})).filter(x=>x.text);
+   let cursor=body.split('<')[0].length;
+   const ts=[...body.matchAll(/<(\d{1,2}:\d{2}(?:[.,]\d+)?)>([^<]*)/g)].map(m=>{const offset=cursor+(m[2].length-m[2].trimStart().length);cursor+=m[2].length;return {time:stamp(m[1])+off,text:m[2].trim(),offset};}).filter(x=>x.text);
    for(const tag of tags)rows.push({time:stamp(tag[1])+off,text:body.replace(/<[^>]*>/g,''),reading:'',end:null,tokens:ts.length?ts:null});
   }
  }
@@ -72,9 +73,51 @@ export function draftFromLyric(row,nextTime,duration,language,difficulties=DIFFI
  if(end<=row.time)throw Error('行の終了時刻は開始時刻より後にしてください');
  const a=lyricUnits(row,language);
  if(row.tokens?.length&&(language!=='ja'||!row.reading?.trim())){
-  return row.tokens.flatMap((t,i)=>{const a=lyricUnits(t,language),stop=row.tokens[i+1]?.time??end;return a.map((kana,j)=>({time:t.time+(stop-t.time)*j/a.length,kana,difficulties:[...difficulties],crimax:false}));});
+  // English gameplay always uses word initials, even with character-level lyric timestamps.
+  const tokens=language==='en'&&row.tokens.every(t=>Number.isInteger(t.offset))?[...row.text.matchAll(/[A-Za-z]+(?:['’][A-Za-z]+)*/g)].map(m=>({text:m[0],time:row.tokens.find(t=>t.offset>=m.index&&t.offset<m.index+m[0].length)?.time})):row.tokens;
+  if(tokens.some(t=>!Number.isFinite(t.time)))throw Error('歌詞の逐字時刻が不足しています');
+  return tokens.flatMap((t,i)=>{if(!units(t.text,language).length)return [];const a=lyricUnits(t,language),stop=tokens[i+1]?.time??end;return a.map((kana,j)=>({time:t.time+(stop-t.time)*j/a.length,kana,difficulties:[...difficulties],crimax:false}));});
  }
  return a.map((kana,i)=>({time:row.time+(end-row.time)*i/a.length,kana,difficulties:[...difficulties],crimax:false}));
+}
+export function timingUnits(text,mode='character'){
+ if(mode==='word')return [...text.matchAll(/\S+/gu)].map(m=>({text:m[0],offset:m.index,time:null}));
+ const segments=typeof Intl.Segmenter==='function'?[...new Intl.Segmenter('ja',{granularity:'grapheme'}).segment(text)].map(s=>({text:s.segment,offset:s.index})):Array.from(text).reduce((a,c)=>{a.push({text:c,offset:a.reduce((n,x)=>n+x.text.length,0)});return a;},[]);
+ return segments.filter(s=>/[\p{L}\p{N}ー〜]/u.test(s.text)).map(s=>({...s,time:null}));
+}
+export function parsePlainLyrics(text,mode='character'){
+ const lines=text.replace(/^\uFEFF/,'').replace(/\r/g,'').split('\n').map(s=>s.trim()).filter(Boolean);
+ if(!lines.length||lines.length>10000||lines.some(s=>Array.from(s).length>500))throw Error('歌詞は 1〜10000 行、1 行 500 文字以内にしてください');
+ const rows=lines.map(text=>({text,time:null,tokens:timingUnits(text,mode)}));if(mode!=='line'&&rows.some(r=>!r.tokens.length))throw Error('逐字打軸には文字を含む行を使ってください');if(rows.reduce((n,r)=>n+r.tokens.length,0)>20000)throw Error('打軸の文字数は合計 20000 以内にしてください');return rows;
+}
+export function stampTiming(rows,rowIndex,tokenIndex,time,duration){
+ if(!Number.isFinite(time)||time<0||time>=duration)throw Error('歌詞時刻がメディア範囲外です');
+ const row=rows[rowIndex];if(!row)throw Error('打軸リストを作ってください。');
+ const result=structuredClone(rows),r=result[rowIndex];
+ if(tokenIndex===null)r.time=Number(time.toFixed(3));
+ else{if(!r.tokens[tokenIndex])throw Error('歌詞の文字がありません');r.tokens[tokenIndex].time=Number(time.toFixed(3));if(tokenIndex===0)r.time=r.tokens[0].time;}
+ return result;
+}
+export function timedLyricRows(rows,mode,duration){
+ if(!rows?.length)throw Error('打軸リストを作ってください。');
+ let last=-1;
+ return rows.map(row=>{
+  const tokens=mode==='line'?null:row.tokens,time=mode==='line'?row.time:tokens?.[0]?.time;
+  if(time==null||tokens?.some(t=>t.time==null))throw Error('未記録の行・文字があります');
+  if(!Number.isFinite(time)||time<0||time>=duration||time<=last)throw Error('歌詞の行時刻は順番に、メディア範囲内で指定してください');
+  last=time;let previous=time;
+  for(const token of tokens||[]){if(!Number.isFinite(token.time)||token.time<previous||token.time>=duration)throw Error('逐字時刻は順番に、メディア範囲内で指定してください');previous=token.time;}
+  return {time,text:row.text,reading:row.reading||'',end:null,tokens:tokens?structuredClone(tokens):null};
+ });
+}
+function lrcStamp(time){const ms=Math.round(time*1000);return `${String(Math.floor(ms/60000)).padStart(2,'0')}:${String(Math.floor(ms/1000)%60).padStart(2,'0')}.${String(ms%1000).padStart(3,'0')}`;}
+export function exportLrc(rows,mode,duration){
+ return timedLyricRows(rows,mode,duration).map(row=>{
+  if(!row.tokens)return `[${lrcStamp(row.time)}]${row.text}`;
+  let text='',cursor=0;
+  for(const token of row.tokens){text+=row.text.slice(cursor,token.offset)+`<${lrcStamp(token.time)}>`+token.text;cursor=token.offset+token.text.length;}
+  return `[${lrcStamp(row.time)}]${text+row.text.slice(cursor)}`;
+ }).join('\n')+'\n';
 }
 export function validate(chart,meta){
  const e=[],need=(c,m)=>{if(!c)e.push(m);};
@@ -108,5 +151,6 @@ export function normalizeProject(data){
  if(typeof p.meta.id!=='string'||typeof p.meta.title!=='string'||typeof p.meta.artist!=='string'||!Array.isArray(p.meta.levels)||p.meta.levels.length!==5||p.meta.levels.some(v=>v!==null&&!Number.isFinite(v)))throw Error('曲情報が不正です');
  for(const n of p.chart.notes)if(typeof n.kana!=='string'||n.kana.length>200||!Number.isFinite(n.time)||!Array.isArray(n.difficulties)||n.difficulties.some(d=>!DIFFICULTIES.includes(d))||n.input!=null&&typeof n.input!=='string')throw Error('ノーツの構造が不正です');
  for(const l of p.chart.lyrics){if(typeof l.text!=='string'||l.text.length>2000||!Number.isFinite(l.time)||l.reading!=null&&typeof l.reading!=='string'||l.end!=null&&!Number.isFinite(l.end))throw Error('歌詞の構造が不正です');if(l.tokens!=null&&(!Array.isArray(l.tokens)||l.tokens.length>10000||l.tokens.some(t=>!Number.isFinite(t.time)||typeof t.text!=='string')))throw Error('歌詞トークンが不正です');}
+ if(p.lyricTiming){const d=p.lyricTiming;if(!['line','character','word'].includes(d.mode)||!Array.isArray(d.rows)||d.rows.length>10000||d.rows.reduce((n,r)=>n+(r.tokens?.length||0),0)>20000||d.rows.some(r=>typeof r.text!=='string'||r.text.length>2000||r.time!==null&&!Number.isFinite(r.time)||!Array.isArray(r.tokens)||r.tokens.length>500||r.tokens.some((t,i)=>!t.text||i>0&&t.offset<r.tokens[i-1].offset+r.tokens[i-1].text.length||typeof t.text!=='string'||!Number.isInteger(t.offset)||t.offset<0||r.text.slice(t.offset,t.offset+t.text.length)!==t.text||t.time!==null&&!Number.isFinite(t.time))))throw Error('打軸プロジェクトの構造が不正です');}
  return structuredClone(p);
 }

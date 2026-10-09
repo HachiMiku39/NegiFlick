@@ -82,3 +82,11 @@ NegiFlick retains the gameplay rules researched in MikuFlick64; it is not presen
 現在は通常文字ノーツと Crimax に対応。途中 BPM 変更・間奏ノーツの作成 UI は未実装です。プレビューは編集用で、ゲーム内の判定再現ではありません。AstroDX / simai は作譜ワークフローの参考であり、エディタの出力は NegiFlick 独自形式です。
 
 静的ファイルは `docs/` にあります。依存パッケージ・CDN・アップロード API は不要です。GitHub Pages は main の `/docs` を公開元にします。ローカルでは `python3 -m http.server --directory docs` などの静的サーバーで開けます。
+
+### Lyric timing — 歌词打轴 / 歌詞の打軸
+
+Studio now offers Japanese, Chinese and English interfaces. Paste untimed lyrics or import TXT, select line / character / word timing, then press **T** while playing local video or audio. Drag across lyric tokens to record the playback time when the pointer enters each token. Select a token while paused to adjust its time. Export ordinary or Enhanced LRC, preview timed token highlighting, and save the timing draft in an editor project. Media stays local and must be selected again after reopening. Pack ZIP export still requires playable MP4.
+
+网页支持中英日界面、无时间轴 TXT／粘贴、逐句／逐字／逐词打轴、T 快捷键、鼠标拖过歌词记录时间、选中字的时间微调、撤销及 LRC 导出。界面语言与歌曲输入语言独立。
+
+Lyric timing does not change gameplay: English remains one word / one initial; Japanese mixed lyrics require author-supplied kana readings; Chinese initials require author confirmation. Notes must pass existing 30 Hz collision and preroll checks. Enhanced LRC and editor projects retain token timing; current game packs retain the existing line-based lyric format. This update does not add in-app character karaoke display. App landscape-video support remains a later step. No new custom-song sample was added in this revision.

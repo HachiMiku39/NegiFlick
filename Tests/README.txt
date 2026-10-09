@@ -31,3 +31,7 @@ work/legacy-initial-tests ORIGINAL_ASSETS IMPORTED_MOV_0
 ブラウザ作譜エディタ：
 node Tests/WebEditorTests.mjs /tmp/negi-editor-tests GameAssets/kana-sprint.mp4
 かな/英語/中国語の入力、LRC/SRT/JSON、行内仮配置、難度マスク、同一 30 Hz tick の衝突、先読み、編集中プロジェクト、ZIP CRC を検証。出力された ja/en/zh-authoring.json は Tools/CompileChart.swift でも検証できます。
+
+Studio 打轴与语言：
+node Tests/LyricTimingTests.mjs
+验证组合假名/标点位置、逐句/逐词/逐字 LRC 回读、未记录与逆序/越界拒绝、英文逐字歌词仍生成单词首字母目标、日文混合歌词手工读音、曲包维持行级歌词、30 Hz 冲突、项目保存结构与中英日界面键。
