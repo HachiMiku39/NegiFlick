@@ -22,6 +22,26 @@ export function units(text,lang){
  if(lang==='zh')return Array.from(text.normalize('NFC')).filter(c=>/^\p{Script=Han}$/u.test(c));
  return Array.from(hira(text)).filter(c=>!/[\s、。！？!?・…「」『』（）(),.]/u.test(c));
 }
+// Resolve the author's pronunciation before creating any Japanese notes.
+// Mixed Japanese lyrics must never become partial kana charts or Latin initials.
+export function lyricUnits(row,language){
+ const reading=language==='ja'?(row.reading||'').trim():'',a=units(reading||row.text,language);
+ if(!a.length)throw Error('入力文字がありません');
+ if(language==='ja'&&a.some(c=>!targetFor(c,'ja'))){
+  if(reading)throw Error('「読み」は行全体のひらがな・カタカナで入力してください。漢字・英字・数字は使えません。');
+  throw Error('漢字・英字などの発音を指定してください。「読み」に歌う行全体をかなで入力します（例：恋の Love → こいのらぶ）。');
+ }
+ return a;
+}
+export function keyChoices(key,language='ja'){
+ const groups=language==='ja'?KANA_GROUPS:['','ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ'];
+ const choices=Array(5).fill('');
+ for(const c of Array.from(groups[key]||'')){
+  const t=language==='ja'?targetFor(c,'ja'):targetFor(c,'en');
+  if(t?.key===key&&!choices[t.direction])choices[t.direction]=c;
+ }
+ return choices;
+}
 export function tick(time){return Math.ceil(time*30);}
 export function centerTime(bpm){const b=[80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240];const s=[3,2.9,2.8,2.6,2.4,2.2,2.1,2,1.9,1.8,1.7,1.6,1.5,1.4,1.3,1.2,1.1,1];const i=b.findIndex(x=>bpm<x);return Math.fround(s[i<0?17:i]);}
 export function prerollTicks(leadMS,bpm){const lead=leadMS/1000,ct=Math.fround(centerTime(bpm)*30);return Math.floor(lead*30-ct)+Math.trunc(ct);}
@@ -50,11 +70,10 @@ export function parseLyrics(text,ext='lrc'){
 export function draftFromLyric(row,nextTime,duration,language,difficulties=DIFFICULTIES){
  const end=row.end??Math.min(nextTime??row.time+3,duration-0.5);
  if(end<=row.time)throw Error('行の終了時刻は開始時刻より後にしてください');
- if(row.tokens?.length&&!row.reading){
-  return row.tokens.flatMap((t,i)=>{const a=units(t.text,language),stop=row.tokens[i+1]?.time??end;return a.map((kana,j)=>({time:t.time+(stop-t.time)*j/a.length,kana,difficulties:[...difficulties],crimax:false}));});
+ const a=lyricUnits(row,language);
+ if(row.tokens?.length&&(language!=='ja'||!row.reading?.trim())){
+  return row.tokens.flatMap((t,i)=>{const a=lyricUnits(t,language),stop=row.tokens[i+1]?.time??end;return a.map((kana,j)=>({time:t.time+(stop-t.time)*j/a.length,kana,difficulties:[...difficulties],crimax:false}));});
  }
- const a=units(row.reading||row.text,language);
- if(!a.length)throw Error('入力文字がありません');
  return a.map((kana,i)=>({time:row.time+(end-row.time)*i/a.length,kana,difficulties:[...difficulties],crimax:false}));
 }
 export function validate(chart,meta){

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {writeFile,mkdir,readFile} from 'node:fs/promises';
-import {DIFFICULTIES,targetFor,units,parseLyrics,draftFromLyric,validate,authoring,manifest,example,normalizeProject,prerollTicks,snap,tick} from '../docs/core.mjs';
+import {DIFFICULTIES,targetFor,keyChoices,lyricUnits,units,parseLyrics,draftFromLyric,validate,authoring,manifest,example,normalizeProject,prerollTicks,snap,tick} from '../docs/core.mjs';
 import {crc32,zipStore} from '../docs/zip.mjs';
 assert.deepEqual(targetFor('ガ'),{symbol:'が',key:1,direction:0});
 assert.equal(targetFor('ゃ').direction,0);assert.equal(targetFor('ゆ').direction,2);assert.equal(targetFor('ー').direction,2);assert.equal(targetFor('〜').direction,4);
@@ -11,6 +11,22 @@ assert.deepEqual(lrc.map(l=>l.time),[2.1,5.1,8.1]);assert.equal(lrc[2].tokens[1]
 const srt=parseLyrics('1\n00:00:02,100 --> 00:00:04,100\nいろは\n\n2\n00:00:05,100 --> 00:00:07,100\nにほ','srt');assert.equal(srt[0].end,4.1);
 assert.equal(parseLyrics('[{"time":2.1,"text":"あ"}]','json')[0].text,'あ');assert.throws(()=>parseLyrics('[00:xx]broken'));assert.throws(()=>parseLyrics('[{"time":-1,"text":"あ"}]','json'));
 const draft=draftFromLyric(srt[0],null,30,'ja');assert.equal(draft.length,3);assert.deepEqual(draft[0].difficulties,DIFFICULTIES);assert.equal(draft[0].time,2.1);
+assert.deepEqual(keyChoices(0),['あ','い','う','え','お']);assert.deepEqual(keyChoices(7),['や','','ゆ','','よ']);
+assert.deepEqual(keyChoices(9),['わ','を','ん','','〜']);assert.deepEqual(keyChoices(6,'en'),['P','Q','R','S','']);
+const mixed={time:2.1,end:8.1,text:'恋の Love',reading:''};
+assert.throws(()=>lyricUnits(mixed,'ja'),/発音/);assert.throws(()=>draftFromLyric(mixed,null,30,'ja'),/発音/);
+assert.throws(()=>draftFromLyric({...mixed,reading:'こいのLove'},null,30,'ja'),/行全体/);
+assert.throws(()=>draftFromLyric({...mixed,text:'かな123'},null,30,'ja'),/発音/);
+const pronounced=draftFromLyric({...mixed,reading:'コイノラブ'},null,30,'ja');
+assert.deepEqual(pronounced.map(n=>n.kana),['こ','い','の','ら','ぶ']);
+assert.deepEqual(pronounced.map(n=>targetFor(n.kana).direction),[4,1,4,0,2]);
+assert.deepEqual(draftFromLyric({time:2.1,end:5.1,text:'あいうえお'},null,30,'ja').map(n=>targetFor(n.kana).direction),[0,1,2,3,4]);
+assert.deepEqual(lyricUnits({text:'Hello world',reading:'はろー'},'en'),['Hello','world']);
+const enhanced=parseLyrics('[00:02.10]<00:02.10>恋<00:03.10>Love')[0];
+assert.throws(()=>draftFromLyric(enhanced,8.1,30,'ja'),/発音/);
+assert.deepEqual(draftFromLyric({...enhanced,reading:'こいらぶ'},8.1,30,'ja').map(n=>n.kana),['こ','い','ら','ぶ']);
+const falseToken={time:2.1,end:4.1,text:'かな',tokens:[{time:2.1,text:'A'}]};
+assert.throws(()=>draftFromLyric(falseToken,null,30,'ja'),/発音/);
 const e=example(),a=authoring(e);assert.deepEqual(validate(a,e.meta),[]);assert.equal(a.notes[1].difficulties.includes('EASY'),false);assert.equal(a.notes[0].difficulties.includes('EASY'),true);
 const collision=structuredClone(a);collision.notes.push({...collision.notes[0],time:2.099});assert.ok(validate(collision).some(e=>e.includes('同じ 30 Hz tick')));
 collision.notes.at(-1).difficulties=['BTL'];collision.notes[0].difficulties=['EASY'];assert.deepEqual(validate(collision),[]);
@@ -23,4 +39,4 @@ const out=process.argv[2]||'/tmp/negi-editor-tests';await mkdir(out,{recursive:t
 for(const lang of ['ja','en','zh']){const p=example();p.chart.inputLanguage=lang;p.chart.notes=lang==='ja'?p.chart.notes:lang==='en'?[{time:2.1,kana:'Hello',difficulties:DIFFICULTIES,crimax:false},{time:3.1,kana:"don't",difficulties:DIFFICULTIES,crimax:false}]:[{time:2.1,kana:'你',input:'N',difficulties:DIFFICULTIES,crimax:false},{time:3.1,kana:'好',input:'H',difficulties:DIFFICULTIES,crimax:false}];assert.deepEqual(validate(authoring(p),p.meta),[]);await writeFile(out+'/'+lang+'-authoring.json',JSON.stringify(authoring(p)));}
 const media=process.argv[3]?new Blob([await readFile(process.argv[3])]):new Blob(['test-media']);
 const files=[{name:'negiflick-pack.json',blob:new Blob([JSON.stringify(manifest(e))])},{name:'authoring.json',blob:new Blob([JSON.stringify(a)])},{name:'media.mp4',blob:media}];const zip=await zipStore(files);await writeFile(out+'/kana-study.zip',new Uint8Array(await zip.arrayBuffer()));
-console.log('PASS: Japanese gesture parity; CN/EN initials; LRC/SRT/JSON parsing; draft timing; five difficulty masks; 30 Hz collisions/preroll; draft projects; ZIP CRC; three Swift-compiler fixtures.');
+console.log('PASS: Japanese gesture/key layouts; mandatory author pronunciation for mixed lyrics; CN/EN initials; LRC/SRT/JSON parsing; draft timing; five difficulty masks; 30 Hz collisions/preroll; draft projects; ZIP CRC; three Swift-compiler fixtures.');
