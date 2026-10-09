@@ -1,0 +1,34 @@
+NegiFlick asset provenance — 2026-10-09
+
+All 25 bundled CAF files were independently synthesized by Tools/SynthAudio.py, without samples or external audio. SE*/BGM* filenames are compatibility identifiers, not original recordings.
+
+Verification: regenerate WAVs with SynthAudio.py, decode each bundled CAF to mono 24000 Hz signed 16-bit PCM, and compare samples. All 25/25 match exactly. None of their file SHA256 hashes matches an original MikuFlick64 CAF. No Na_* voice recording is bundled.
+
+Graphics: Tools/GenerateArtwork.swift generates the neutral icon, cover and practice visuals. Kana Sprint and both initial-input packs use the original synthetic practice music and geometric video; the private Iroha recording is excluded. FFmpeg is third-party codec software, distributed with its exact source and LGPL notices.
+
+CAF SHA256:
+5409bc465a23f3b10a6fa53107934e434be390927b9c7a5e0517c7734742f2f8  GameAssets/BGM01.caf
+5409bc465a23f3b10a6fa53107934e434be390927b9c7a5e0517c7734742f2f8  GameAssets/BGM03.caf
+5409bc465a23f3b10a6fa53107934e434be390927b9c7a5e0517c7734742f2f8  GameAssets/BGM05.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE01.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE01_01.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE01_03.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE02.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE02_01.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE03.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE04.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE04_01.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE04v2.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE05.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE05_01.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE06.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE07.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE08.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE09.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE10.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE11.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE12.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE13.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE14.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE15.caf
+a159350463b3762fd8ae9db9d6261292198913ea356ee5a5d9a20d7afb2fd1d7  GameAssets/SE16.caf
